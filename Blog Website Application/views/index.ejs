@@ -1,0 +1,32 @@
+<!-- Home Page -->
+<div class="author">
+    <h1 class="author_heading">Hi, I am Johnathon</h1>
+    <p class="author_body">Web developer and content creator.</p>
+</div>
+
+<img src="/img/global-technology.webp" alt="the globe on a cpu" class="hero-image" width="981" width="528">
+
+<section calss="articles">
+    <h2 class="article_heading">Latest Posts</h2>
+
+    <ul class="article-ul">
+
+        <% data.forEach(post => {%>
+        <li>
+            <a href="/post/<%= post._id %>">
+                <span><%= post.title %></span>
+                <span class="article-list_date"><%= post.createdAt.toDateString() %></span>
+            </a>
+        </li>
+        <% }) %>
+    </ul>
+
+    <!-- only display pagination if its over 10 posts -->
+    <% if (nextPage !== null) { %>
+        <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+      <% } %>
+
+
+
+    
+</section>
